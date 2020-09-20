@@ -1,6 +1,7 @@
 package chat;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class Cliente {
 
@@ -26,8 +27,16 @@ class canvasCliente extends JPanel{
         areaTexto= new JTextField(25);
         add(areaTexto);
         enviarbtn =new JButton("ENVIAR");
+        enviarMensaje evento_enviar=new enviarMensaje();
+        enviarbtn.addActionListener(evento_enviar);
         add(enviarbtn);
         }
+    private class enviarMensaje implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e){
+            System.out.println(areaTexto.getText());
+        }
+    }
     private JTextField areaTexto;
 
     private JButton enviarbtn;
