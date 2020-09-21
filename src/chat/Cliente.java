@@ -32,18 +32,21 @@ class canvasCliente extends JPanel{
         enviarbtn.addActionListener(evento_enviar);
         add(enviarbtn);
         }
-    private class enviarMensaje implements ActionListener{
+        public class enviarMensaje implements ActionListener{
+        int puerto=6943;
+        public int get_puerto(){
+            return puerto;
+        }
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println(areaTexto.getText());
-            int puerto=6942;
-
+            //Creación del socket y de el flujo de datos
             while (true) {
                 try {
-                    Socket socket_enviar = new Socket("127.0.0.1", puerto);
+                    Socket socket_c = new Socket("127.0.0.1", puerto);
                     System.out.println("El puerto que se está utilizando es el: "+ puerto);
-                    DataOutputStream flujo_s =new DataOutputStream(socket_enviar.getOutputStream());
-                    flujo_s.writeUTF(areaTexto.getText());
+                    DataOutputStream flujo_s =new DataOutputStream(socket_c.getOutputStream());//Creación del canal
+                    flujo_s.writeUTF(areaTexto.getText());//Guarde lo que contiene area de texto
                     flujo_s.close();
                     break;
                 }
@@ -52,7 +55,7 @@ class canvasCliente extends JPanel{
                 }
                 catch (IOException e1){
                     System.out.println("El puerto : "+ puerto +" se encuentra ocupado " + e1.getMessage());
-                    puerto-=1;
+                    puerto-=1;//Modifica el puerto hasta encontrar uno que se encuentre
                 }
             }
         }

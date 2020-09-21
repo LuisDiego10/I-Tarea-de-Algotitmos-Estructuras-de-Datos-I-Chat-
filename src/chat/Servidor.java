@@ -1,6 +1,7 @@
 package chat;
 import javax.swing.*;
 import java.awt.*;
+import java.net.ServerSocket;
 
 public class Servidor {
     public static void main(String[] args) {
@@ -19,13 +20,15 @@ class ventanaServidor extends JFrame implements Runnable{
         canvasServidor.add(areatexto,BorderLayout.CENTER);
         add(canvasServidor);
         setVisible(true);
-        Thread hilo_s=new Thread(this);
+        Thread hilo_s=new Thread(this);//Hillo servidor
         hilo_s.start();
     }
     private	JTextArea areatexto;
 
     @Override
     public void run() {
-        System.out.println("FUNCIONANDO");
+        //System.out.println("FUNCIONANDO");
+        //chat.canvasCliente.enviarMensaje puertos=new chat.canvasCliente.enviarMensaje();
+        //ServerSocket servidor=new ServerSocket(puertos.puerto());
     }
 }
