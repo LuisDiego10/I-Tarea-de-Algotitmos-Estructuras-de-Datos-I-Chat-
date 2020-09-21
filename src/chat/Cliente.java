@@ -62,10 +62,15 @@ class canvasCliente extends JPanel{
             while (true) {
                 try {
                     Socket socket_c = new Socket("127.0.0.1", puerto);
-                    System.out.println("El puerto que se está utilizando es el: "+ puerto);
+                    //Guardar datos de envío en los métodos
+                    detalles_s detalles=new detalles_s();
+                    detalles.setNombre(nombre.getText());
+                    detalles.setContacto(contacto.getText());
+                    detalles.setMensaje(areaTexto.getText());
+                    /*System.out.println("El puerto que se está utilizando es el: "+ puerto);
                     DataOutputStream flujo_s =new DataOutputStream(socket_c.getOutputStream());//Creación de flujo de salida
                     flujo_s.writeUTF(areaTexto.getText());//Guarde lo que contiene area de texto
-                    flujo_s.close();
+                    flujo_s.close();*/
                     break;
                 }
                 catch (UnknownHostException e1){
@@ -79,4 +84,31 @@ class canvasCliente extends JPanel{
         }
     }
 }
+//Clase para enviar datos de envío
+class detalles_s{
+    private String nombre, contacto, mensaje;
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getContacto() {
+        return contacto;
+    }
+
+    public void setContacto(String contacto) {
+        this.contacto = contacto;
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
+}
