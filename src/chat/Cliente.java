@@ -37,10 +37,11 @@ class canvasCliente extends JPanel{
         public void actionPerformed(ActionEvent e) {
             System.out.println(areaTexto.getText());
             int puerto=6942;
+
             while (true) {
-                System.out.println(puerto);
                 try {
                     Socket socket_enviar = new Socket("127.0.0.1", puerto);
+                    System.out.println("El puerto que se está utilizando es el: "+ puerto);
                     DataOutputStream flujo_s =new DataOutputStream(socket_enviar.getOutputStream());
                     flujo_s.writeUTF(areaTexto.getText());
                     flujo_s.close();
@@ -50,7 +51,7 @@ class canvasCliente extends JPanel{
                     e1.printStackTrace();
                 }
                 catch (IOException e1){
-                    System.out.println(e1.getMessage());
+                    System.out.println("El puerto : "+ puerto +" se encuentra ocupado " + e1.getMessage());
                     puerto-=1;
                 }
             }

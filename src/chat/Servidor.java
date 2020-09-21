@@ -9,7 +9,7 @@ public class Servidor {
     }
 }
 
-class ventanaServidor extends JFrame{
+class ventanaServidor extends JFrame implements Runnable{
     public ventanaServidor(){
         setTitle("SERVIDOR");
         setBounds(1200,300,280,350);
@@ -19,6 +19,13 @@ class ventanaServidor extends JFrame{
         canvasServidor.add(areatexto,BorderLayout.CENTER);
         add(canvasServidor);
         setVisible(true);
+        Thread hilo_s=new Thread(this);
+        hilo_s.start();
     }
     private	JTextArea areatexto;
+
+    @Override
+    public void run() {
+        System.out.println("FUNCIONANDO");
+    }
 }
