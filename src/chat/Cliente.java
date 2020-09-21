@@ -33,7 +33,7 @@ class canvasCliente extends JPanel{
         add(enviarbtn);
         }
         public class enviarMensaje implements ActionListener{
-        int puerto=6943;
+        int puerto=6942;
         public int get_puerto(){
             return puerto;
         }
@@ -45,7 +45,7 @@ class canvasCliente extends JPanel{
                 try {
                     Socket socket_c = new Socket("127.0.0.1", puerto);
                     System.out.println("El puerto que se está utilizando es el: "+ puerto);
-                    DataOutputStream flujo_s =new DataOutputStream(socket_c.getOutputStream());//Creación del canal
+                    DataOutputStream flujo_s =new DataOutputStream(socket_c.getOutputStream());//Creación de flujo de salida
                     flujo_s.writeUTF(areaTexto.getText());//Guarde lo que contiene area de texto
                     flujo_s.close();
                     break;
