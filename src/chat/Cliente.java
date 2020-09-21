@@ -1,14 +1,15 @@
 package chat;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.*;
 
 public class Cliente {
 
     public static void main(String[] args) {
 	ventanaCliente ventana_c = new ventanaCliente();
 	ventana_c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     }
 }
 class ventanaCliente extends JFrame {
@@ -33,8 +34,26 @@ class canvasCliente extends JPanel{
         }
     private class enviarMensaje implements ActionListener{
         @Override
-        public void actionPerformed(ActionEvent e){
+        public void actionPerformed(ActionEvent e) {
             System.out.println(areaTexto.getText());
+            int puerto=6942;
+            while (true) {
+                System.out.println(puerto);
+                try {
+                    Socket socket_enviar = new Socket("127.0.0.1", puerto);
+                    DataOutputStream flujo_s =new DataOutputStream(socket_enviar.getOutputStream());
+                    flujo_s.writeUTF(areaTexto.getText());
+                    flujo_s.close();
+                    break;
+                }
+                catch (UnknownHostException e1){
+                    e1.printStackTrace();
+                }
+                catch (IOException e1){
+                    System.out.println(e1.getMessage());
+                    puerto-=1;
+                }
+            }
         }
     }
     private JTextField areaTexto;
