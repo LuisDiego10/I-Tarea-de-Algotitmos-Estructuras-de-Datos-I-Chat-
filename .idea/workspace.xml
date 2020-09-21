@@ -50,6 +50,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunManager" selected="Application.Cliente">
     <configuration name="Cliente" type="Application" factoryName="Application" nameIsGenerated="true">
@@ -88,13 +89,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -120,6 +123,7 @@
       <option name="presentableId" value="Default" />
       <updated>1600630490780</updated>
       <workItem from="1600630493885" duration="6058000" />
+      <workItem from="1600720344078" duration="6028000" />
     </task>
     <servers />
   </component>
@@ -136,51 +140,74 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="591" y="215" width="800" height="856" key="#Intentions" timestamp="1600675601565">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="591" y="215" width="800" height="856" key="#Intentions/72.27.1848.1053@72.27.1848.1053" timestamp="1600675601565" />
+    <state x="591" y="197" width="800" height="719" key="#Plugins" timestamp="1600720371087">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="591" y="197" width="800" height="719" key="#Plugins/72.27.1848.1053@72.27.1848.1053" timestamp="1600720371087" />
     <state x="804" y="261" width="374" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1600660111336">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="804" y="261" width="374" height="592" key="#com.intellij.ide.util.MemberChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1600660111336" />
-    <state width="1802" height="340" key="GridCell.Tab.0.bottom" timestamp="1600677150285">
+    <state width="1802" height="275" key="GridCell.Tab.0.bottom" timestamp="1600726068814">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="340" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1600677150285" />
-    <state width="1802" height="340" key="GridCell.Tab.0.center" timestamp="1600677150281">
+    <state width="1802" height="275" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1600726068814" />
+    <state width="1802" height="275" key="GridCell.Tab.0.center" timestamp="1600726068811">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="340" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1600677150281" />
-    <state width="1802" height="340" key="GridCell.Tab.0.left" timestamp="1600677150279">
+    <state width="1802" height="275" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1600726068811" />
+    <state width="1802" height="275" key="GridCell.Tab.0.left" timestamp="1600726068810">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="340" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1600677150279" />
-    <state width="1802" height="340" key="GridCell.Tab.0.right" timestamp="1600677150283">
+    <state width="1802" height="275" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1600726068810" />
+    <state width="1802" height="275" key="GridCell.Tab.0.right" timestamp="1600726068813">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="340" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1600677150283" />
-    <state width="1802" height="340" key="GridCell.Tab.1.bottom" timestamp="1600677150292">
+    <state width="1802" height="275" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1600726068813" />
+    <state width="1802" height="340" key="GridCell.Tab.1.bottom" timestamp="1600726044484">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="340" key="GridCell.Tab.1.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1600677150292" />
-    <state width="1802" height="340" key="GridCell.Tab.1.center" timestamp="1600677150289">
+    <state width="1802" height="340" key="GridCell.Tab.1.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1600726044484" />
+    <state width="1802" height="340" key="GridCell.Tab.1.center" timestamp="1600726044482">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="340" key="GridCell.Tab.1.center/72.27.1848.1053@72.27.1848.1053" timestamp="1600677150289" />
-    <state width="1802" height="340" key="GridCell.Tab.1.left" timestamp="1600677150287">
+    <state width="1802" height="340" key="GridCell.Tab.1.center/72.27.1848.1053@72.27.1848.1053" timestamp="1600726044482" />
+    <state width="1802" height="340" key="GridCell.Tab.1.left" timestamp="1600726044481">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="340" key="GridCell.Tab.1.left/72.27.1848.1053@72.27.1848.1053" timestamp="1600677150287" />
-    <state width="1802" height="340" key="GridCell.Tab.1.right" timestamp="1600677150291">
+    <state width="1802" height="340" key="GridCell.Tab.1.left/72.27.1848.1053@72.27.1848.1053" timestamp="1600726044481" />
+    <state width="1802" height="340" key="GridCell.Tab.1.right" timestamp="1600726044483">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state width="1802" height="340" key="GridCell.Tab.1.right/72.27.1848.1053@72.27.1848.1053" timestamp="1600677150291" />
-    <state x="660" y="252" key="run.anything.popup" timestamp="1600670003703">
+    <state width="1802" height="340" key="GridCell.Tab.1.right/72.27.1848.1053@72.27.1848.1053" timestamp="1600726044483" />
+    <state x="517" y="272" width="947" height="654" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1600724112328">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="660" y="252" key="run.anything.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1600670003703" />
+    <state x="517" y="272" width="947" height="654" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/72.27.1848.1053@72.27.1848.1053" timestamp="1600724112328" />
+    <state x="752" y="300" width="477" height="514" key="refactoring.ChangeSignatureDialog" timestamp="1600724143980">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="752" y="300" width="477" height="514" key="refactoring.ChangeSignatureDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1600724143980" />
+    <state x="660" y="252" key="run.anything.popup" timestamp="1600724397737">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="660" y="252" key="run.anything.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1600724397737" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
