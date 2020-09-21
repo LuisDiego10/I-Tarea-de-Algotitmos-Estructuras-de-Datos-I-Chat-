@@ -32,18 +32,21 @@ class ventanaServidor extends JFrame implements Runnable{
     @Override
     public void run() {
         //System.out.println("FUNCIONANDO");
-        try {
-            //chat.canvasCliente.enviarMensaje puertos=new chat.canvasCliente.enviarMensaje();
-            //ServerSocket servidor=new ServerSocket(puertos.get_puerto());
-            ServerSocket servidor = new ServerSocket( 9999);//Poner a escuchar
-            Socket socket_s=servidor.accept();//Aceptar las conexiones
-            DataInputStream flujo_e=new DataInputStream(socket_s.getInputStream());//Flujo de datos de entrada
-            String mensaje=flujo_e.readUTF();
-            areamensajes.append("\n"+mensaje);
-            socket_s.close();
+        while (true){
+            try {
+                //chat.canvasCliente.enviarMensaje puertos=new chat.canvasCliente.enviarMensaje();
+                //ServerSocket servidor=new ServerSocket(puertos.get_puerto());
+                ServerSocket servidor = new ServerSocket( 9999);//Poner a escuchar
+                Socket socket_s=servidor.accept();//Aceptar las conexiones
+                DataInputStream flujo_e=new DataInputStream(socket_s.getInputStream());//Flujo de datos de entrada
+                String mensaje=flujo_e.readUTF();
+                areamensajes.append("\n"+mensaje);
+                socket_s.close();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
         }
-        catch (IOException e){
-            e.printStackTrace();
-        }
+
     }
 }
