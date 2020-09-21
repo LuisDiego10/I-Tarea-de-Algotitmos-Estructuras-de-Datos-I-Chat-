@@ -33,7 +33,7 @@ class canvasCliente extends JPanel{
         add(enviarbtn);
         }
         public class enviarMensaje implements ActionListener{
-        int puerto=6942;
+        int puerto=9999;
         public int get_puerto(){
             return puerto;
         }

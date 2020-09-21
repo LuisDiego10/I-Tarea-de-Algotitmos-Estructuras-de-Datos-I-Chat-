@@ -35,7 +35,7 @@ class ventanaServidor extends JFrame implements Runnable{
         try {
             //chat.canvasCliente.enviarMensaje puertos=new chat.canvasCliente.enviarMensaje();
             //ServerSocket servidor=new ServerSocket(puertos.get_puerto());
-            ServerSocket servidor = new ServerSocket(6942);//Poner a escuchar
+            ServerSocket servidor = new ServerSocket( 9999);//Poner a escuchar
             Socket socket_s=servidor.accept();//Aceptar las conexiones
             DataInputStream flujo_e=new DataInputStream(socket_s.getInputStream());//Flujo de datos de entrada
             String mensaje=flujo_e.readUTF();
