@@ -2,7 +2,6 @@ package chat;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;

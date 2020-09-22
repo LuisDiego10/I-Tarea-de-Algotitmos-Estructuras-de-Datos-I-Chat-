@@ -2,7 +2,7 @@ package chat;
 import java.io.IOException;
 import javax.swing.*;
 import java.awt.*;
-import java.io.DataInputStream;
+import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -30,20 +30,22 @@ class ventanaServidor extends JFrame implements Runnable{
 
     @Override
     public void run() {
-        //System.out.println("FUNCIONANDO");
-        while (true){
-            try {
-                ServerSocket servidor = new ServerSocket( 9999);//Poner a escuchar
-                Socket socket_s=servidor.accept();//Aceptar las conexiones
-                DataInputStream flujo_e=new DataInputStream(socket_s.getInputStream());//Flujo de datos de entrada
-                String mensaje=flujo_e.readUTF();
-                areamensajes_s.append("\n"+mensaje);
+        try {
+            ServerSocket servidor = new ServerSocket(9999);//Poner a escuchar
+            String nombre, contacto, mensaje; //Variables para almacenar los datos enviados por el cliente
+            detalles_s detalles_r;
+            while (true) {
+                Socket socket_s = servidor.accept();//Aceptar las conexiones
+                ObjectInputStream flujo_e = new ObjectInputStream(socket_s.getInputStream());//Flujo de datos de entrada
+                detalles_r = (detalles_s) flujo_e.readObject();
+                nombre=detalles_r.getNombre();
+                contacto=detalles_r.getContacto();
+                mensaje=detalles_r.getMensaje();
+                areamensajes_s.append("\n" + nombre+": "+ mensaje + " \n" + "Este mensaje ha sido enviado para " + contacto );
                 socket_s.close();
             }
-            catch (IOException e){
-                e.printStackTrace();
+        }catch (IOException | ClassNotFoundException e){
+            e.printStackTrace();
             }
-        }
-
     }
 }
