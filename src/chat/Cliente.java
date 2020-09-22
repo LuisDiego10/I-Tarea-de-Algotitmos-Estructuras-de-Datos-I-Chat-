@@ -3,9 +3,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.net.*;
+import java.net.ServerSocket;
+import java.net.Socket;
 import  javax.swing.ImageIcon;
 
 public class Cliente {
@@ -24,7 +27,7 @@ class ventanaCliente extends JFrame {
         setVisible(true);
         }
 }
-class canvasCliente extends JPanel{
+class canvasCliente extends JPanel implements Runnable{
     private JTextField areaTexto,nombre,contacto;
     private JTextArea areaMensajes_c;
     private JButton enviarbtn;
@@ -50,12 +53,30 @@ class canvasCliente extends JPanel{
         enviarMensaje evento_enviar=new enviarMensaje();
         enviarbtn.addActionListener(evento_enviar);
         add(enviarbtn);
+        Thread hilo_cliente=new Thread(this);
+        hilo_cliente.start();
         }
-        public class enviarMensaje implements ActionListener{
+
+    @Override
+    public void run() {
+        try {
+            ServerSocket servidor_cliente = new ServerSocket(9090);
+            Socket cliente;
+            detalles_s paqueteRecibido;
+            while (true) {
+                cliente=servidor_cliente.accept();
+                ObjectInputStream flujo_e_c=new ObjectInputStream(cliente.getInputStream());
+                paqueteRecibido= (detalles_s) flujo_e_c.readObject();
+                areaMensajes_c.append("\n" + paqueteRecibido.getNombre() + ": " + paqueteRecibido.getMensaje() + " \n" + "Este mensaje ha sido enviado para " + paqueteRecibido.getContacto());
+            }
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+             }
+    }
+
+    public class enviarMensaje implements ActionListener{
         int puerto=10000;
-        public int get_puerto(){
-            return puerto;
-        }
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println(areaTexto.getText());
