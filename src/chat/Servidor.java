@@ -48,6 +48,7 @@ class ventanaServidor extends JFrame implements Runnable {
                 Socket socket_c2 = new Socket("127.0.0.1", puerto2);
                 ObjectOutputStream paquete_s2 = new ObjectOutputStream(socket_c2.getOutputStream());
                 paquete_s2.writeObject(detalles_r);
+                paquete_s2.close();
                 socket_c2.close();
                 socket_s.close();
             }

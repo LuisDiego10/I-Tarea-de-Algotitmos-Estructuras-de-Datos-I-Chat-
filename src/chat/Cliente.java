@@ -23,7 +23,8 @@ class ventanaCliente extends JFrame {
         this.setTitle("CLIENTE");
         setBounds(600,300,620,650);
         canvasCliente canvasc=new canvasCliente();
-        add(canvasc);
+        add(canvasc);        
+        //this.setIconImage(new ImageIcon(getClass().getResource("icon ventana.jpg")).getImage());
         setVisible(true);
         }
 }
@@ -32,6 +33,7 @@ class canvasCliente extends JPanel implements Runnable{
     private JTextArea areaMensajes_c;
     private JButton enviarbtn;
     public canvasCliente(){
+
         ImageIcon usericon =new ImageIcon("/home/diego/Algoritmos y Estructuras de Datos 1/JAVA/Tareas/I-Tarea-de-Algotitmos-Estructuras-de-Datos-I-Chat-/src/chat/usericon.png");
         JLabel etiqueta_u=new JLabel();
         etiqueta_u.setBounds(10,10,20,20);
@@ -41,6 +43,11 @@ class canvasCliente extends JPanel implements Runnable{
         add(etiqueta_n);
         nombre=new JTextField(15);
         add(nombre);
+        ImageIcon contacticon =new ImageIcon("/home/diego/Algoritmos y Estructuras de Datos 1/JAVA/Tareas/I-Tarea-de-Algotitmos-Estructuras-de-Datos-I-Chat-/src/chat/contacticon.png");
+        JLabel etiqueta_ce=new JLabel();
+        etiqueta_ce.setBounds(10,10,20,20);
+        etiqueta_ce.setIcon(new ImageIcon(contacticon.getImage().getScaledInstance(20,20, Image.SCALE_SMOOTH)));
+        add(etiqueta_ce);
         JLabel etiqueta_c=new JLabel("Contacto: ");
         add(etiqueta_c);
         contacto=new JTextField(15);
@@ -76,7 +83,7 @@ class canvasCliente extends JPanel implements Runnable{
     }
 
     public class enviarMensaje implements ActionListener{
-        int puerto=10000;
+        int puerto=9999;
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println(areaTexto.getText());
