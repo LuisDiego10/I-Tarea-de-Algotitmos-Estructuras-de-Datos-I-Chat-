@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.net.*;
 import  javax.swing.ImageIcon;
 
@@ -67,10 +69,10 @@ class canvasCliente extends JPanel{
                     detalles.setNombre(nombre.getText());
                     detalles.setContacto(contacto.getText());
                     detalles.setMensaje(areaTexto.getText());
-                    /*System.out.println("El puerto que se está utilizando es el: "+ puerto);
-                    DataOutputStream flujo_s =new DataOutputStream(socket_c.getOutputStream());//Creación de flujo de salida
-                    flujo_s.writeUTF(areaTexto.getText());//Guarde lo que contiene area de texto
-                    flujo_s.close();*/
+                    System.out.println("El puerto que se está utilizando es el: "+ puerto);
+                    ObjectOutputStream paquete_s=new ObjectOutputStream(socket_c.getOutputStream());//Creación de flujo de salida
+                    paquete_s.writeObject(detalles);//Guarde lo que contiene el paquete de salida
+                    socket_c.close();
                     break;
                 }
                 catch (UnknownHostException e1){
@@ -85,7 +87,7 @@ class canvasCliente extends JPanel{
     }
 }
 //Clase para enviar datos de envío
-class detalles_s{
+class detalles_s implements Serializable {
     private String nombre, contacto, mensaje;
 
     public String getNombre() {
