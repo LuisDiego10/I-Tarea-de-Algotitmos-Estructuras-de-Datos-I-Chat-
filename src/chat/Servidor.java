@@ -7,14 +7,30 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * Clase Servidor
+ * Instancia un objeto de la clase ventanaServidor y permite cerrar la ventana al pulsar X
+ * @author diego
+ * version 1.0
+ */
 public class Servidor {
     public static void main(String[] args) {
         ventanaServidor ventana_s = new ventanaServidor();
         ventana_s.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
-
+/**
+ * Clase ventanaServidor
+ * Generar la ventana del servidor con sus respectivas características, hereda a JFrame para el formato de la ventana e
+ * implementa Runnable mismo utilizado para mantener activo y a la escucha el servidor
+ * @author diego
+ * version 1.0
+ */
 class ventanaServidor extends JFrame implements Runnable {
+    /**
+     * Método necesario para dar formato a lo que ven los usuarios,contiene textos y la
+     * creación de un Thread necesario para el Runnable
+     */
     public ventanaServidor() {
         setTitle("SERVIDOR");
         setBounds(1200, 300, 520, 450);
@@ -27,8 +43,18 @@ class ventanaServidor extends JFrame implements Runnable {
         Thread hilo_s = new Thread(this);//Hillo servidor
         hilo_s.start();
     }
-
+    /**
+     * Variable tipo JTextArea donde se almacenan y muestran los mensajes
+     */
     private JTextArea areamensajes_s;
+    /**
+     * Método público
+     * Através de un "try" crea socket de escucha para el servidor, almacena datos enviados y recibidos,crea flujo de entrada de datos,
+     * acepta las conexiones, crea un socket para enviar datos al cliente y cierra los sockets y paquetes de datos.
+     * EL catch evita las expeciones y muestra el error en consola
+     * @author diego
+     * version 1.0
+     */
     @Override
     public void run() {
         //int puerto2 = 9090;
