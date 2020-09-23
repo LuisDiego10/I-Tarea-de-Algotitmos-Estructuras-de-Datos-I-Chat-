@@ -14,8 +14,8 @@ import  javax.swing.ImageIcon;
 public class Cliente {
 
     public static void main(String[] args) {
-	ventanaCliente ventana_c = new ventanaCliente();
-	ventana_c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventanaCliente ventana_c = new ventanaCliente();
+        ventana_c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
 class ventanaCliente extends JFrame {
@@ -23,17 +23,13 @@ class ventanaCliente extends JFrame {
         this.setTitle("CLIENTE");
         setBounds(600,300,620,650);
         canvasCliente canvasc=new canvasCliente();
-        add(canvasc);        
+        add(canvasc);
         //this.setIconImage(new ImageIcon(getClass().getResource("icon ventana.jpg")).getImage());
         setVisible(true);
-        }
+    }
 }
 class canvasCliente extends JPanel implements Runnable{
-    private JTextField areaTexto,nombre,contacto;
-    private JTextArea areaMensajes_c;
-    private JButton enviarbtn;
     public canvasCliente(){
-
         ImageIcon usericon =new ImageIcon("/home/diego/Algoritmos y Estructuras de Datos 1/JAVA/Tareas/I-Tarea-de-Algotitmos-Estructuras-de-Datos-I-Chat-/src/chat/usericon.png");
         JLabel etiqueta_u=new JLabel();
         etiqueta_u.setBounds(10,10,20,20);
@@ -41,7 +37,9 @@ class canvasCliente extends JPanel implements Runnable{
         add(etiqueta_u);
         JLabel etiqueta_n=new JLabel("Nombre: ");
         add(etiqueta_n);
-        nombre=new JTextField(15);
+        String nombre_u=JOptionPane.showInputDialog("Ingrese su nombre: ");
+        nombre=new JLabel();
+        nombre.setText(nombre_u);
         add(nombre);
         ImageIcon contacticon =new ImageIcon("/home/diego/Algoritmos y Estructuras de Datos 1/JAVA/Tareas/I-Tarea-de-Algotitmos-Estructuras-de-Datos-I-Chat-/src/chat/contacticon.png");
         JLabel etiqueta_ce=new JLabel();
@@ -60,35 +58,33 @@ class canvasCliente extends JPanel implements Runnable{
         enviarMensaje evento_enviar=new enviarMensaje();
         enviarbtn.addActionListener(evento_enviar);
         add(enviarbtn);
-        Thread hilo_cliente=new Thread(this);
-        hilo_cliente.start();
-        }
+        Thread hilo_s=new Thread(this);
+        hilo_s.start();
+    }
 
     @Override
     public void run() {
-        try {
-            ServerSocket servidor_cliente = new ServerSocket(9090);
-            Socket cliente;
+        try{
+            ServerSocket servidor_cliente=new ServerSocket(9090);
             detalles_s paqueteRecibido;
-            while (true) {
-                cliente=servidor_cliente.accept();
-                ObjectInputStream flujo_e_c=new ObjectInputStream(cliente.getInputStream());
-                paqueteRecibido= (detalles_s) flujo_e_c.readObject();
-                areaMensajes_c.append("\n" + paqueteRecibido.getNombre() + ": " + paqueteRecibido.getMensaje() + " \n" + "Este mensaje ha sido enviado para " + paqueteRecibido.getContacto());
+            while (true){
+                Socket cliente=servidor_cliente.accept();
+                ObjectInputStream flujoentrada=new ObjectInputStream(cliente.getInputStream());
+                paqueteRecibido= (detalles_s) flujoentrada.readObject();
+                areaMensajes_c.append("\n" +paqueteRecibido.getNombre() + ": "+paqueteRecibido.getMensaje()+ "Este mensaje ha sido enviado para: " + paqueteRecibido.getContacto());
             }
-        }
-        catch (Exception e){
+
+        }catch (Exception e){
             System.out.println(e.getMessage());
-             }
+        }
     }
 
     public class enviarMensaje implements ActionListener{
         int puerto=9999;
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println(areaTexto.getText());
-            //Creación del socket y de el flujo de datos
             while (true) {
+                //areaMensajes_c.append("\n"+areaTexto.getText());
                 try {
                     Socket socket_c = new Socket("127.0.0.1", puerto);
                     //Guardar datos de envío en los métodos
@@ -112,6 +108,10 @@ class canvasCliente extends JPanel implements Runnable{
             }
         }
     }
+    private JTextField areaTexto,contacto;
+    private JLabel nombre;
+    private JTextArea areaMensajes_c;
+    private JButton enviarbtn;
 }
 //Clase para enviar datos de envío
 class detalles_s implements Serializable {

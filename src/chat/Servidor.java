@@ -29,28 +29,27 @@ class ventanaServidor extends JFrame implements Runnable {
     }
 
     private JTextArea areamensajes_s;
-
     @Override
     public void run() {
-        int puerto2 = 9090;
+        //int puerto2 = 9090;
         try {
             ServerSocket servidor = new ServerSocket(9999);//Poner a escuchar
             String nombre, contacto, mensaje; //Variables para almacenar los datos enviados por el cliente
             detalles_s detalles_r;
             while (true) {
-                Socket socket_s = servidor.accept();//Aceptar las conexiones
-                ObjectInputStream flujo_e = new ObjectInputStream(socket_s.getInputStream());//Flujo de datos de entrada
+                Socket socket_c = servidor.accept();//Aceptar las conexiones
+                ObjectInputStream flujo_e = new ObjectInputStream(socket_c.getInputStream());//Flujo de datos de entrada
                 detalles_r = (detalles_s) flujo_e.readObject();
                 nombre = detalles_r.getNombre();
                 contacto = detalles_r.getContacto();
                 mensaje = detalles_r.getMensaje();
                 areamensajes_s.append("\n" + nombre + ": " + mensaje + " \n" + "Este mensaje ha sido enviado para " + contacto);
-                Socket socket_c2 = new Socket("127.0.0.1", puerto2);
+                Socket socket_c2 = new Socket("127.0.0.1", 9090);//Socket para el cliente 2
                 ObjectOutputStream paquete_s2 = new ObjectOutputStream(socket_c2.getOutputStream());
                 paquete_s2.writeObject(detalles_r);
                 paquete_s2.close();
                 socket_c2.close();
-                socket_s.close();
+                socket_c.close();
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
