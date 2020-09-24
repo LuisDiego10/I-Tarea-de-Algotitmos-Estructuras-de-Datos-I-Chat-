@@ -91,17 +91,23 @@ class canvasCliente extends JPanel implements Runnable{
      */
     @Override
     public void run() {
-        try{
-            ServerSocket servidor_cliente=new ServerSocket(9090);
-            detalles_s paqueteRecibido;
-            while (true){
-                Socket cliente=servidor_cliente.accept();
-                ObjectInputStream flujoentrada=new ObjectInputStream(cliente.getInputStream());
-                paqueteRecibido= (detalles_s) flujoentrada.readObject();
-                areaMensajes_c.append("\n" +paqueteRecibido.getNombre() + ": "+paqueteRecibido.getMensaje()+ "Este mensaje ha sido enviado para: " + paqueteRecibido.getContacto());
+        int puerto2 = 9999;
+        ServerSocket servidor_cliente;
+        try {
+            try {
+                servidor_cliente = new ServerSocket(puerto2);
+            } catch (Exception e) {
+                puerto2 =9090;
+                servidor_cliente=new ServerSocket(puerto2);
             }
-
-        }catch (Exception e){
+            detalles_s paqueteRecibido;
+            while (true) {
+                Socket cliente = servidor_cliente.accept();
+                ObjectInputStream flujoentrada = new ObjectInputStream(cliente.getInputStream());
+                paqueteRecibido = (detalles_s) flujoentrada.readObject();
+                areaMensajes_c.append("\n" + paqueteRecibido.getNombre() + ": " + paqueteRecibido.getMensaje() + "Este mensaje ha sido enviado para: " + paqueteRecibido.getContacto());
+            }
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
@@ -116,9 +122,6 @@ class canvasCliente extends JPanel implements Runnable{
     public class enviarMensaje implements ActionListener{
         int puerto=9999;
         @Override
-        /**
-         *
-         */
         public void actionPerformed(ActionEvent e) {
             while (true) {
                 //areaMensajes_c.append("\n"+areaTexto.getText());
