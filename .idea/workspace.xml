@@ -125,6 +125,7 @@
       <workItem from="1600630493885" duration="6058000" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1600720344078" duration="25642000" />
       <workItem from="1600759578667" duration="536000" />
       <workItem from="1600811803482" duration="13378000" />
@@ -132,6 +133,9 @@
       <workItem from="1600898893491" duration="2896000" />
 =======
 >>>>>>> parent of 16f0b7b... Mejora de interfaz Cliente y creación de variables para enviar información como el nombre del cliente recibe y el nombre de cliente envía
+=======
+      <workItem from="1600720344078" duration="7144000" />
+>>>>>>> parent of f5e59d8... Cambio al flujo de salida y Serialización
 =======
       <workItem from="1600720344078" duration="7144000" />
 >>>>>>> parent of f5e59d8... Cambio al flujo de salida y Serialización

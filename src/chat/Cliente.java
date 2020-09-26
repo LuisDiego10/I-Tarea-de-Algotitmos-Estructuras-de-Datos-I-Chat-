@@ -3,9 +3,12 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.io.IOException;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+=======
+>>>>>>> parent of f5e59d8... Cambio al flujo de salida y Serialización
 =======
 >>>>>>> parent of f5e59d8... Cambio al flujo de salida y Serialización
 import java.net.*;
@@ -180,6 +183,7 @@ class canvasCliente extends JPanel{
     private JButton enviarbtn;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 /**
  * Clase detalles_s, esta clase contiene los métodos para obtener y accesar a datos que son enviados en un paquete,
@@ -191,6 +195,10 @@ class detalles_s implements Serializable {
     /**
      * Variables tipo String privadas que almacenan datos tipo String
      */
+=======
+//Clase para enviar datos de envío
+class detalles_s{
+>>>>>>> parent of f5e59d8... Cambio al flujo de salida y Serialización
 =======
 //Clase para enviar datos de envío
 class detalles_s{
