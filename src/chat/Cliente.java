@@ -1,18 +1,12 @@
 package chat;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
-<<<<<<< HEAD
-<<<<<<< HEAD
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-=======
->>>>>>> parent of f5e59d8... Cambio al flujo de salida y Serialización
-=======
->>>>>>> parent of f5e59d8... Cambio al flujo de salida y Serialización
 import java.net.*;
-<<<<<<< HEAD
 import java.net.ServerSocket;
 import java.net.Socket;
 import  javax.swing.ImageIcon;
@@ -22,8 +16,6 @@ import  javax.swing.ImageIcon;
  * @author diego
  * version 1.0
  */
-=======
->>>>>>> parent of 16f0b7b... Mejora de interfaz Cliente y creación de variables para enviar información como el nombre del cliente recibe y el nombre de cliente envía
 
 public class Cliente {
 
@@ -41,14 +33,13 @@ public class Cliente {
 class ventanaCliente extends JFrame {
     public ventanaCliente(){
         this.setTitle("CLIENTE");
-        setBounds(600,300,280,350);
+        setBounds(600,300,620,650);
         canvasCliente canvasc=new canvasCliente();
         add(canvasc);
         //this.setIconImage(new ImageIcon(getClass().getResource("icon ventana.jpg")).getImage());
         setVisible(true);
     }
 }
-<<<<<<< HEAD
 /**
  * Clase canvasCliente
  * Esta clase  hereda JPanel y contiene el método canvasCliente que da formato a lo que se muestra en pantalla, además
@@ -85,13 +76,6 @@ class canvasCliente extends JPanel implements Runnable{
         areaMensajes_c=new JTextArea(25,40);
         add(areaMensajes_c);
         areaTexto= new JTextField(30);
-=======
-class canvasCliente extends JPanel{
-    public canvasCliente(){
-        JLabel etiqueta=new JLabel("DIGITE EL MENSAJE QUE DESEA ENVIAR");
-        add(etiqueta);
-        areaTexto= new JTextField(25);
->>>>>>> parent of 16f0b7b... Mejora de interfaz Cliente y creación de variables para enviar información como el nombre del cliente recibe y el nombre de cliente envía
         add(areaTexto);
         enviarbtn =new JButton("ENVIAR");
         enviarMensaje evento_enviar=new enviarMensaje();
@@ -126,7 +110,6 @@ class canvasCliente extends JPanel{
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-<<<<<<< HEAD
     }
 
     /**
@@ -138,13 +121,6 @@ class canvasCliente extends JPanel{
      */
     public class enviarMensaje implements ActionListener{
         int puerto=9999;
-=======
-        public class enviarMensaje implements ActionListener{
-        int puerto=9999;
-        public int get_puerto(){
-            return puerto;
-        }
->>>>>>> parent of 16f0b7b... Mejora de interfaz Cliente y creación de variables para enviar información como el nombre del cliente recibe y el nombre de cliente envía
         @Override
         public void actionPerformed(ActionEvent e) {
             while (true) {
@@ -156,10 +132,10 @@ class canvasCliente extends JPanel{
                     detalles.setNombre(nombre.getText());
                     detalles.setContacto(contacto.getText());
                     detalles.setMensaje(areaTexto.getText());
-                    /*System.out.println("El puerto que se está utilizando es el: "+ puerto);
-                    DataOutputStream flujo_s =new DataOutputStream(socket_c.getOutputStream());//Creación de flujo de salida
-                    flujo_s.writeUTF(areaTexto.getText());//Guarde lo que contiene area de texto
-                    flujo_s.close();*/
+                    System.out.println("El puerto que se está utilizando es el: "+ puerto);
+                    ObjectOutputStream paquete_s=new ObjectOutputStream(socket_c.getOutputStream());//Creación de flujo de salida
+                    paquete_s.writeObject(detalles);//Guarde lo que contiene el paquete de salida
+                    socket_c.close();
                     break;
                 }
                 catch (UnknownHostException e1){
@@ -167,12 +143,11 @@ class canvasCliente extends JPanel{
                 }
                 catch (IOException e1){
                     System.out.println("El puerto : "+ puerto +" se encuentra ocupado " + e1.getMessage());
-                    puerto-=1;//Modifica el puerto hasta encontrar uno que se encuentre
+                    puerto-=1;//Modifica el puerto hasta encontrar uno que se encuentre disponilble
                 }
             }
         }
     }
-<<<<<<< HEAD
 
     /**
      * Variables de la clase javax.swing.*; utilizadas para la realización de la interfaz gráfica, ejecución de tareas y muestra de datos
@@ -182,8 +157,6 @@ class canvasCliente extends JPanel{
     private JTextArea areaMensajes_c;
     private JButton enviarbtn;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 /**
  * Clase detalles_s, esta clase contiene los métodos para obtener y accesar a datos que son enviados en un paquete,
@@ -195,14 +168,6 @@ class detalles_s implements Serializable {
     /**
      * Variables tipo String privadas que almacenan datos tipo String
      */
-=======
-//Clase para enviar datos de envío
-class detalles_s{
->>>>>>> parent of f5e59d8... Cambio al flujo de salida y Serialización
-=======
-//Clase para enviar datos de envío
-class detalles_s{
->>>>>>> parent of f5e59d8... Cambio al flujo de salida y Serialización
     private String nombre, contacto, mensaje;
 
     /**
@@ -254,9 +219,3 @@ class detalles_s{
         this.mensaje = mensaje;
     }
 }
-=======
-    private JTextField areaTexto;
-
-    private JButton enviarbtn;
-}
->>>>>>> parent of 16f0b7b... Mejora de interfaz Cliente y creación de variables para enviar información como el nombre del cliente recibe y el nombre de cliente envía
