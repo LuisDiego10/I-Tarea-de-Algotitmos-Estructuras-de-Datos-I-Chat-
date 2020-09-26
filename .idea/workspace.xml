@@ -50,7 +50,6 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunManager" selected="Application.Cliente">
     <configuration name="Cliente" type="Application" factoryName="Application" nameIsGenerated="true">
@@ -89,6 +88,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
+=======
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+>>>>>>> parent of 16f0b7b... Mejora de interfaz Cliente y creación de variables para enviar información como el nombre del cliente recibe y el nombre de cliente envía
     <list>
       <item itemvalue="Application.Cliente" />
       <item itemvalue="Application.Main" />
@@ -110,11 +123,14 @@
       <option name="presentableId" value="Default" />
       <updated>1600630490780</updated>
       <workItem from="1600630493885" duration="6058000" />
+<<<<<<< HEAD
       <workItem from="1600720344078" duration="25642000" />
       <workItem from="1600759578667" duration="536000" />
       <workItem from="1600811803482" duration="13378000" />
       <workItem from="1600872185030" duration="645000" />
       <workItem from="1600898893491" duration="2896000" />
+=======
+>>>>>>> parent of 16f0b7b... Mejora de interfaz Cliente y creación de variables para enviar información como el nombre del cliente recibe y el nombre de cliente envía
     </task>
     <servers />
   </component>
@@ -131,13 +147,13 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="591" y="215" width="800" height="856" key="#Intentions" timestamp="1600675601565">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="591" y="215" width="800" height="856" key="#Intentions/72.27.1848.1053@72.27.1848.1053" timestamp="1600675601565" />
+<<<<<<< HEAD
     <state x="591" y="197" width="800" height="719" key="#Plugins" timestamp="1600720371087">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
@@ -220,6 +236,48 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+=======
+    <state x="804" y="261" width="374" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1600660111336">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="804" y="261" width="374" height="592" key="#com.intellij.ide.util.MemberChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1600660111336" />
+    <state width="1802" height="340" key="GridCell.Tab.0.bottom" timestamp="1600677150285">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1802" height="340" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1600677150285" />
+    <state width="1802" height="340" key="GridCell.Tab.0.center" timestamp="1600677150281">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1802" height="340" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1600677150281" />
+    <state width="1802" height="340" key="GridCell.Tab.0.left" timestamp="1600677150279">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1802" height="340" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1600677150279" />
+    <state width="1802" height="340" key="GridCell.Tab.0.right" timestamp="1600677150283">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1802" height="340" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1600677150283" />
+    <state width="1802" height="340" key="GridCell.Tab.1.bottom" timestamp="1600677150292">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1802" height="340" key="GridCell.Tab.1.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1600677150292" />
+    <state width="1802" height="340" key="GridCell.Tab.1.center" timestamp="1600677150289">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1802" height="340" key="GridCell.Tab.1.center/72.27.1848.1053@72.27.1848.1053" timestamp="1600677150289" />
+    <state width="1802" height="340" key="GridCell.Tab.1.left" timestamp="1600677150287">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1802" height="340" key="GridCell.Tab.1.left/72.27.1848.1053@72.27.1848.1053" timestamp="1600677150287" />
+    <state width="1802" height="340" key="GridCell.Tab.1.right" timestamp="1600677150291">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state width="1802" height="340" key="GridCell.Tab.1.right/72.27.1848.1053@72.27.1848.1053" timestamp="1600677150291" />
+    <state x="660" y="252" key="run.anything.popup" timestamp="1600670003703">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="660" y="252" key="run.anything.popup/72.27.1848.1053@72.27.1848.1053" timestamp="1600670003703" />
+>>>>>>> parent of 16f0b7b... Mejora de interfaz Cliente y creación de variables para enviar información como el nombre del cliente recibe y el nombre de cliente envía
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/I_Tarea_de_Algotitmos_Estructuras_de_Datos_I_Chat_$Cliente.ic" NAME="Cliente Coverage Results" MODIFIED="1600741969134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
